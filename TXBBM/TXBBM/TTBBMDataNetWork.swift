@@ -9,47 +9,29 @@
 import UIKit
 
 class TTBBMDataNetWork: NSObject {
-   
-    
-   class func postURL(sender:String,Mutabledic:NSMutableDictionary)->AnyObject{
-    var manager = AFHTTPRequestOperationManager();
-    manager.GET(registerURL,
-        parameters:nil,
-        success: { (operation: AFHTTPRequestOperation!,
-            responseObject: AnyObject!) in
-            
-            println("JSON: " + responseObject.description!)
-        },
-        failure: { (operation: AFHTTPRequestOperation!,
-            error: NSError!) in
-            println("Error: " + error.localizedDescription)
-    })
-
-    
-    manager.POST(registerURL,
-        parameters:nil,
-        success:{ (test1:AFHTTPRequestOperation!,
-            test2:AnyObject!)in
-            
-            
-            },
-        failure:{(test2:AFHTTPRequestOperation!,
-            error:NSError!)in
-            
-    })
-    
-        
-    
-    
-    
-    
-    
-    
-        return"wewe"
-    }
-    
-    
-    
-    
+    typealias datafinish = (AnyObject)->Void
+    static var errorClosuer:datafinish?
+    static var successClosuer:datafinish?
+    //网络请求，二次封装
+    static func setpost(URL:String!,paras:AnyObject!,success:datafinish,error:datafinish){
+        errorClosuer = error
+        successClosuer = success
+        var manager = AFHTTPRequestOperationManager();
+        manager.POST(URL,
+            parameters:paras,
+            success:
+            {(operation:AFHTTPRequestOperation!,
+            responseObject:AnyObject!)in
+                if((self.successClosuer) != nil){
+                   self.successClosuer!(responseObject)
+                }
+            },failure:
+            {(operation:AFHTTPRequestOperation!,
+                error:NSError!)in
+                if((self.errorClosuer) != nil){
+                    self.errorClosuer!(error)
+                }
+        })
+}
     
 }

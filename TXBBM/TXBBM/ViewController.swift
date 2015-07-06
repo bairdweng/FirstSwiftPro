@@ -8,11 +8,14 @@
 
 
 import UIKit
+
+
 //声明代理
 class ViewController: UIViewController,UITextFieldDelegate{
 
     @IBOutlet weak var UserNameTextField: UITextField!
     @IBOutlet weak var PassWordTextfield: UITextField!
+    //登陆的接口
     override func viewDidLoad() {
         super.viewDidLoad()
         PassWordTextfield.clearButtonMode = UITextFieldViewMode.Always
@@ -27,11 +30,27 @@ class ViewController: UIViewController,UITextFieldDelegate{
     @IBAction func ClickLogin(sender: UIButton) {
         
         if(UserNameTextField.text == ""||PassWordTextfield.text == ""){
-            SVProgressHUD .showErrorWithStatus("请输入正确的用户名或密码")
+            SVProgressHUD.showErrorWithStatus("请输入正确的用户名或密码")
         }
         else{
-            
-            
+            var paras = TXBBMAPI.SetTheDefaultParameters()
+            paras.setValue("1001",forKey:"ma")
+            paras.setValue(UserNameTextField.text,forKey:"id")
+            paras.setValue(PassWordTextfield.text,forKey:"password")
+            SVProgressHUD.show()
+            TTBBMDataNetWork.setpost(TXBBMAPI.getURL(),paras: paras, success: { (datafinish:AnyObject!) -> Void in
+                var message = datafinish["message"]as! String
+                var status = datafinish["status"]as!NSNumber
+                if(status == 1){
+                    SVProgressHUD.showSuccessWithStatus("登陆成功");
+                }
+                else{
+                    SVProgressHUD.showErrorWithStatus(message);
+                }
+              }, error: { (error:AnyObject!) -> Void in
+                SVProgressHUD.showErrorWithStatus("网络错误")
+                println(error)
+            })
         }
     }
     //延迟函数
@@ -43,7 +62,6 @@ class ViewController: UIViewController,UITextFieldDelegate{
             ),
             dispatch_get_main_queue(), closure)
     }
-    
     //键盘回收的方法
     func KeyboardContraction(){
         UserNameTextField .resignFirstResponder()

@@ -7,12 +7,9 @@
 //
 
 import UIKit
-let registerURL = "http://api.linglingtang.com/index.php?s=/Page/index.html"
-
 class registerViewcontroller: UIViewController {
     @IBOutlet weak var UserNameTextField: UITextField!
     @IBOutlet weak var PassWordTextField: UITextField!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         PassWordTextField.clearButtonMode = UITextFieldViewMode.Always
@@ -24,36 +21,35 @@ class registerViewcontroller: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-    
-    
     @IBAction func ClickRegister(sender: AnyObject) {
-        
         if(UserNameTextField.text == ""||PassWordTextField.text == ""){
             SVProgressHUD .showErrorWithStatus("请输入正确的用户名或密码")
         }
             //开始注册
         else{
-            
-            
-            var manager = AFHTTPRequestOperationManager();
-            
-            SVProgressHUD .show()
-            
-            
-            println("A==="+TXBBMAPI.ToGenerateTheApi("我icwi"))
-            manager.GET(registerURL,
-                parameters:nil,
-                success: { (operation: AFHTTPRequestOperation!,
-                    responseObject: AnyObject!) in
-                    
-                    println("JSON: " + responseObject.description!)
-                },
-                failure: { (operation: AFHTTPRequestOperation!,
-                    error: NSError!) in
-                    println("Error: " + error.localizedDescription)
-            })
+            var manager = AFHTTPRequestOperationManager()
+            SVProgressHUD.show()
+            var paras = TXBBMAPI.SetTheDefaultParameters()
+            paras.setValue("1003",forKey:"ma")
+            paras.setValue(UserNameTextField.text,forKey:"mobile")
+            paras.setValue(PassWordTextField.text,forKey:"password")
+            println(paras)
+            TTBBMDataNetWork.setpost(TXBBMAPI.getURL(),paras:paras,success:{(datas:AnyObject!)-> Void in
+                println(datas);
+                var message = datas["message"]as! String
+                SVProgressHUD.showErrorWithStatus(message)
+                println(message)
+//                   UIStoryboard *story = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
+                var story = UIStoryboard(name:"main", bundle:NSBundle .mainBundle())
+                var tabbar = story.instantiateViewControllerWithIdentifier("TXBBMTabbarViewController")as!UITabBarController;
+                
+//                self.navigationController?.pushViewController(tabbar, animated:false);
+                
+                
+                }, error: { (error:AnyObject!) -> Void in
+                    println("错误")
+            });
         }
-
     }
 
 
