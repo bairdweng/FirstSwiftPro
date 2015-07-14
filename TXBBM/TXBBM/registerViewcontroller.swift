@@ -10,6 +10,7 @@ import UIKit
 class registerViewcontroller: UIViewController {
     @IBOutlet weak var UserNameTextField: UITextField!
     @IBOutlet weak var PassWordTextField: UITextField!
+
     override func viewDidLoad() {
         super.viewDidLoad()
         PassWordTextField.clearButtonMode = UITextFieldViewMode.Always
@@ -20,7 +21,6 @@ class registerViewcontroller: UIViewController {
         self.view .addGestureRecognizer(tap)
         // Do any additional setup after loading the view.
     }
-    
     @IBAction func ClickRegister(sender: AnyObject) {
         if(UserNameTextField.text == ""||PassWordTextField.text == ""){
             SVProgressHUD .showErrorWithStatus("请输入正确的用户名或密码")
@@ -36,25 +36,19 @@ class registerViewcontroller: UIViewController {
             println(paras)
             TTBBMDataNetWork.setpost(TXBBMAPI.getURL(),paras:paras,success:{(datas:AnyObject!)-> Void in
                 println(datas);
-                var message = datas["message"]as! String
-                SVProgressHUD.showErrorWithStatus(message)
-                println(message)
-//                   UIStoryboard *story = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
-                var story = UIStoryboard(name:"main", bundle:NSBundle .mainBundle())
-                var tabbar = story.instantiateViewControllerWithIdentifier("TXBBMTabbarViewController")as!UITabBarController;
-                
-//                self.navigationController?.pushViewController(tabbar, animated:false);
-                
-                
+                var message = datas["message"]as?String
+                var status = datas["status"]as?NSNumber;
+                if(status == 1){
+                 self.navigationController?.popViewControllerAnimated(true);
+                }
+                else{
+                    SVProgressHUD.showErrorWithStatus(message)
+                }
                 }, error: { (error:AnyObject!) -> Void in
                     println("错误")
             });
         }
     }
-
-
-    
-    
     //键盘回收的方法
     func KeyboardContraction(){
         UserNameTextField .resignFirstResponder()

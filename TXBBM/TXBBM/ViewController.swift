@@ -15,6 +15,9 @@ class ViewController: UIViewController,UITextFieldDelegate{
 
     @IBOutlet weak var UserNameTextField: UITextField!
     @IBOutlet weak var PassWordTextfield: UITextField!
+    
+    @IBOutlet var test: [UIView]!
+    
     //登陆的接口
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,13 +25,29 @@ class ViewController: UIViewController,UITextFieldDelegate{
         UserNameTextField.clearButtonMode = UITextFieldViewMode.Always
         PassWordTextfield.secureTextEntry = true;
         PassWordTextfield.delegate = self
+        var useDic:NSUserDefaults! = NSUserDefaults.standardUserDefaults()
+        var isforKey:AnyObject! = useDic.objectForKey("userName")
+        if (isforKey != nil)
+        {
+            UserNameTextField.text = useDic.objectForKey("userName")as!String
+            PassWordTextfield.text = useDic.objectForKey("password")as!String
+        }
+        
         //点击手势让键盘回收
-        let tap = UITapGestureRecognizer (target: self, action:"KeyboardContraction");
+        let tap = UITapGestureRecognizer (target: self, action:"KeyboardContraction")
         self.view .addGestureRecognizer(tap)
+        
+        //判断是否已经登陆，如果登陆那么显示已经登陆的页面。
+        var isLogin:AnyObject! = useDic.objectForKey("personinfomation")
+        if (isLogin != nil){
+            var storyboard:UIStoryboard! = UIStoryboard(name:"Main", bundle: NSBundle.mainBundle())
+            var tabbarViewController:UIViewController! = storyboard.instantiateViewControllerWithIdentifier("TXBBMTabbarViewController")as!UIViewController
+            self.navigationController!.pushViewController(tabbarViewController, animated:false)
+        }
         // Do any additional setup after loading the view, typically from a nib.
     }
     @IBAction func ClickLogin(sender: UIButton) {
-        
+
         if(UserNameTextField.text == ""||PassWordTextfield.text == ""){
             SVProgressHUD.showErrorWithStatus("请输入正确的用户名或密码")
         }
@@ -41,8 +60,19 @@ class ViewController: UIViewController,UITextFieldDelegate{
             TTBBMDataNetWork.setpost(TXBBMAPI.getURL(),paras: paras, success: { (datafinish:AnyObject!) -> Void in
                 var message = datafinish["message"]as! String
                 var status = datafinish["status"]as!NSNumber
+                var data = datafinish["data"]
+                println(datafinish);
+                
+                
                 if(status == 1){
                     SVProgressHUD.showSuccessWithStatus("登陆成功");
+                    var storyboard:UIStoryboard! = UIStoryboard(name:"Main", bundle: NSBundle.mainBundle())
+                    var tabbarViewController:UIViewController! = storyboard.instantiateViewControllerWithIdentifier("TXBBMTabbarViewController")as!UIViewController
+                    self.navigationController!.pushViewController(tabbarViewController, animated:true)
+                    var useDic:NSUserDefaults! = NSUserDefaults.standardUserDefaults()
+                    useDic.setObject(self.UserNameTextField.text,forKey:"userName")
+                    useDic.setObject(self.PassWordTextfield.text,forKey:"password")
+                    useDic.setObject(data,forKey:"personinfomation")
                 }
                 else{
                     SVProgressHUD.showErrorWithStatus(message);
@@ -66,7 +96,6 @@ class ViewController: UIViewController,UITextFieldDelegate{
     func KeyboardContraction(){
         UserNameTextField .resignFirstResponder()
         PassWordTextfield.resignFirstResponder()
-        
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

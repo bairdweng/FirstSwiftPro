@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		993F18B11B54FBFE0019F1BE /* TMTabbarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 993F18B01B54FBFE0019F1BE /* TMTabbarController.swift */; };
+		993F18B81B54FE190019F1BE /* SkillsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 993F18B71B54FE190019F1BE /* SkillsViewController.swift */; };
+		993F18BA1B54FE460019F1BE /* PersonalcenterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 993F18B91B54FE460019F1BE /* PersonalcenterViewController.swift */; };
+		993F18BD1B550A2F0019F1BE /* PersonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 993F18BB1B550A2F0019F1BE /* PersonCell.swift */; };
+		993F18BE1B550A2F0019F1BE /* PersonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 993F18BC1B550A2F0019F1BE /* PersonCell.xib */; };
 		99643CE11B42741800143D5E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99643CE01B42741800143D5E /* AppDelegate.swift */; };
 		99643CE31B42741800143D5E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99643CE21B42741800143D5E /* ViewController.swift */; };
 		99643CE61B42741800143D5E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 99643CE41B42741800143D5E /* Main.storyboard */; };
@@ -40,6 +45,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		993F18B01B54FBFE0019F1BE /* TMTabbarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TMTabbarController.swift; sourceTree = "<group>"; };
+		993F18B71B54FE190019F1BE /* SkillsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SkillsViewController.swift; sourceTree = "<group>"; };
+		993F18B91B54FE460019F1BE /* PersonalcenterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonalcenterViewController.swift; sourceTree = "<group>"; };
+		993F18BB1B550A2F0019F1BE /* PersonCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonCell.swift; sourceTree = "<group>"; };
+		993F18BC1B550A2F0019F1BE /* PersonCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PersonCell.xib; sourceTree = "<group>"; };
 		99643CDB1B42741800143D5E /* TXBBM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TXBBM.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		99643CDF1B42741800143D5E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		99643CE01B42741800143D5E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -96,6 +106,51 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		993F18B21B54FCE70019F1BE /* model */ = {
+			isa = PBXGroup;
+			children = (
+				998B852B1B43E309005909C2 /* TXBBMAPI.swift */,
+				998B852D1B43F589005909C2 /* TTBBMDataNetWork.swift */,
+			);
+			name = model;
+			sourceTree = "<group>";
+		};
+		993F18B31B54FCFF0019F1BE /* main */ = {
+			isa = PBXGroup;
+			children = (
+				99643CE01B42741800143D5E /* AppDelegate.swift */,
+				993F18B01B54FBFE0019F1BE /* TMTabbarController.swift */,
+			);
+			name = main;
+			sourceTree = "<group>";
+		};
+		993F18B41B54FD160019F1BE /* loginRegister */ = {
+			isa = PBXGroup;
+			children = (
+				99BB61931B43A3B600904035 /* registerViewcontroller.swift */,
+				99643CE21B42741800143D5E /* ViewController.swift */,
+			);
+			name = loginRegister;
+			sourceTree = "<group>";
+		};
+		993F18B51B54FDD80019F1BE /* skills */ = {
+			isa = PBXGroup;
+			children = (
+				993F18B71B54FE190019F1BE /* SkillsViewController.swift */,
+			);
+			name = skills;
+			sourceTree = "<group>";
+		};
+		993F18B61B54FDEC0019F1BE /* Personalcenter */ = {
+			isa = PBXGroup;
+			children = (
+				993F18B91B54FE460019F1BE /* PersonalcenterViewController.swift */,
+				993F18BB1B550A2F0019F1BE /* PersonCell.swift */,
+				993F18BC1B550A2F0019F1BE /* PersonCell.xib */,
+			);
+			name = Personalcenter;
+			sourceTree = "<group>";
+		};
 		99643CD21B42741800143D5E = {
 			isa = PBXGroup;
 			children = (
@@ -119,11 +174,11 @@
 		99643CDD1B42741800143D5E /* TXBBM */ = {
 			isa = PBXGroup;
 			children = (
-				99643CE01B42741800143D5E /* AppDelegate.swift */,
-				99643CE21B42741800143D5E /* ViewController.swift */,
-				99BB61931B43A3B600904035 /* registerViewcontroller.swift */,
-				998B852B1B43E309005909C2 /* TXBBMAPI.swift */,
-				998B852D1B43F589005909C2 /* TTBBMDataNetWork.swift */,
+				993F18B21B54FCE70019F1BE /* model */,
+				993F18B41B54FD160019F1BE /* loginRegister */,
+				993F18B31B54FCFF0019F1BE /* main */,
+				993F18B51B54FDD80019F1BE /* skills */,
+				993F18B61B54FDEC0019F1BE /* Personalcenter */,
 				99643CE41B42741800143D5E /* Main.storyboard */,
 				99643CE71B42741800143D5E /* Images.xcassets */,
 				99643CE91B42741800143D5E /* LaunchScreen.xib */,
@@ -278,6 +333,7 @@
 				99643CE61B42741800143D5E /* Main.storyboard in Resources */,
 				99643CEB1B42741800143D5E /* LaunchScreen.xib in Resources */,
 				99643CE81B42741800143D5E /* Images.xcassets in Resources */,
+				993F18BE1B550A2F0019F1BE /* PersonCell.xib in Resources */,
 				99BB61911B43987D00904035 /* SVProgressHUD.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -298,8 +354,10 @@
 			files = (
 				99643CE31B42741800143D5E /* ViewController.swift in Sources */,
 				99BB61AD1B43A52B00904035 /* AFSecurityPolicy.m in Sources */,
+				993F18BD1B550A2F0019F1BE /* PersonCell.swift in Sources */,
 				99643CE11B42741800143D5E /* AppDelegate.swift in Sources */,
 				99BB61AA1B43A52B00904035 /* AFHTTPRequestOperationManager.m in Sources */,
+				993F18B11B54FBFE0019F1BE /* TMTabbarController.swift in Sources */,
 				99BB61AE1B43A52B00904035 /* AFURLConnectionOperation.m in Sources */,
 				99BB61A91B43A52B00904035 /* AFHTTPRequestOperation.m in Sources */,
 				99BB61921B43987D00904035 /* SVProgressHUD.m in Sources */,
@@ -310,6 +368,8 @@
 				99BB61AC1B43A52B00904035 /* AFNetworkReachabilityManager.m in Sources */,
 				99BB61B01B43A52B00904035 /* AFURLResponseSerialization.m in Sources */,
 				99BB61B11B43A52B00904035 /* AFURLSessionManager.m in Sources */,
+				993F18BA1B54FE460019F1BE /* PersonalcenterViewController.swift in Sources */,
+				993F18B81B54FE190019F1BE /* SkillsViewController.swift in Sources */,
 				99BB61941B43A3B600904035 /* registerViewcontroller.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
