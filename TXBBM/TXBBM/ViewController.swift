@@ -61,9 +61,7 @@ class ViewController: UIViewController,UITextFieldDelegate{
                 var message = datafinish["message"]as! String
                 var status = datafinish["status"]as!NSNumber
                 var data = datafinish["data"]
-                println(datafinish);
-                
-                
+                println(datafinish);                
                 if(status == 1){
                     SVProgressHUD.showSuccessWithStatus("登陆成功");
                     var storyboard:UIStoryboard! = UIStoryboard(name:"Main", bundle: NSBundle.mainBundle())

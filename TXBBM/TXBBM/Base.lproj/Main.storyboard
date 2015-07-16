@@ -115,27 +115,44 @@
         <!--个人中心-->
         <scene sceneID="ykk-Yo-TxK">
             <objects>
-                <viewController storyboardIdentifier="TBTabbar" useStoryboardIdentifierAsRestorationIdentifier="YES" id="pWN-9J-lmL" customClass="PersonalcenterViewController" customModule="TXBBM" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TBTabbar" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="pWN-9J-lmL" customClass="PersonalcenterViewController" customModule="TXBBM" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="y9w-0E-r66">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="gIH-Bd-lrn">
-                                <rect key="frame" x="0.0" y="51" width="320" height="467"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="gIH-Bd-lrn">
+                                <rect key="frame" x="0.0" y="64" width="320" height="456"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <sections/>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="个人中心" id="Qav-jt-l4V"/>
+                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
+                    <tabBarItem key="tabBarItem" tag="1" title="个人中心" id="Qav-jt-l4V"/>
                     <connections>
                         <outlet property="personTableView" destination="gIH-Bd-lrn" id="2XT-K1-EcK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mqg-q9-yq7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-817" y="821"/>
+            <point key="canvasLocation" x="-945" y="823"/>
+        </scene>
+        <!--账户管理-->
+        <scene sceneID="RfK-hi-IDU">
+            <objects>
+                <viewController storyboardIdentifier="AccountManagement" autoresizesArchivedViewToFullSize="NO" title="账户管理" automaticallyAdjustsScrollViewInsets="NO" hidesBottomBarWhenPushed="YES" id="C7r-5A-ce9" customClass="AccountManagement" customModule="TXBBM" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="zoz-cX-qka">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ouJ-yC-e2a" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-556" y="823"/>
         </scene>
         <!--技能-->
         <scene sceneID="P1L-mg-zks">
@@ -150,12 +167,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="p4v-pa-sFV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-817" y="146"/>
+            <point key="canvasLocation" x="-945" y="130"/>
         </scene>
         <!--Tabbar Controller-->
         <scene sceneID="8nd-S7-Dm8">
             <objects>
-                <tabBarController storyboardIdentifier="TXBBMTabbarViewController" id="hmf-Qv-I43" customClass="TMTabbarController" customModule="TXBBM" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="TXBBMTabbarViewController" automaticallyAdjustsScrollViewInsets="NO" id="hmf-Qv-I43" customClass="TMTabbarController" customModule="TXBBM" customModuleProvider="target" sceneMemberID="viewController">
                     <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="o2c-9R-vn2">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
@@ -169,7 +186,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VN0-vP-Cc1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1284" y="426"/>
+            <point key="canvasLocation" x="-1448" y="384"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="6Ce-tX-QBL">

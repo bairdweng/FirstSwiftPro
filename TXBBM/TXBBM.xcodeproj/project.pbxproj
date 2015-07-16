@@ -20,6 +20,7 @@
 		99643CF71B42741800143D5E /* TXBBMTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99643CF61B42741800143D5E /* TXBBMTests.swift */; };
 		998B852C1B43E309005909C2 /* TXBBMAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998B852B1B43E309005909C2 /* TXBBMAPI.swift */; };
 		998B852E1B43F589005909C2 /* TTBBMDataNetWork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998B852D1B43F589005909C2 /* TTBBMDataNetWork.swift */; };
+		99B0BE191B57AA7900AD61C3 /* AccountManagement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B0BE181B57AA7900AD61C3 /* AccountManagement.swift */; };
 		99BB61911B43987D00904035 /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 99BB618E1B43987D00904035 /* SVProgressHUD.bundle */; };
 		99BB61921B43987D00904035 /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 99BB61901B43987D00904035 /* SVProgressHUD.m */; };
 		99BB61941B43A3B600904035 /* registerViewcontroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99BB61931B43A3B600904035 /* registerViewcontroller.swift */; };
@@ -62,6 +63,7 @@
 		99643CF61B42741800143D5E /* TXBBMTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TXBBMTests.swift; sourceTree = "<group>"; };
 		998B852B1B43E309005909C2 /* TXBBMAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TXBBMAPI.swift; sourceTree = "<group>"; };
 		998B852D1B43F589005909C2 /* TTBBMDataNetWork.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TTBBMDataNetWork.swift; sourceTree = "<group>"; };
+		99B0BE181B57AA7900AD61C3 /* AccountManagement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountManagement.swift; sourceTree = "<group>"; };
 		99BB618E1B43987D00904035 /* SVProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SVProgressHUD.bundle; sourceTree = "<group>"; };
 		99BB618F1B43987D00904035 /* SVProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVProgressHUD.h; sourceTree = "<group>"; };
 		99BB61901B43987D00904035 /* SVProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVProgressHUD.m; sourceTree = "<group>"; };
@@ -145,6 +147,7 @@
 			isa = PBXGroup;
 			children = (
 				993F18B91B54FE460019F1BE /* PersonalcenterViewController.swift */,
+				99B0BE181B57AA7900AD61C3 /* AccountManagement.swift */,
 				993F18BB1B550A2F0019F1BE /* PersonCell.swift */,
 				993F18BC1B550A2F0019F1BE /* PersonCell.xib */,
 			);
@@ -356,6 +359,7 @@
 				99BB61AD1B43A52B00904035 /* AFSecurityPolicy.m in Sources */,
 				993F18BD1B550A2F0019F1BE /* PersonCell.swift in Sources */,
 				99643CE11B42741800143D5E /* AppDelegate.swift in Sources */,
+				99B0BE191B57AA7900AD61C3 /* AccountManagement.swift in Sources */,
 				99BB61AA1B43A52B00904035 /* AFHTTPRequestOperationManager.m in Sources */,
 				993F18B11B54FBFE0019F1BE /* TMTabbarController.swift in Sources */,
 				99BB61AE1B43A52B00904035 /* AFURLConnectionOperation.m in Sources */,
